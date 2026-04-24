@@ -9,8 +9,28 @@ public class Metodos {
     ArrayList<Veiculo> veiculos = new ArrayList<>();
 
 //aqui começam os metodos
-    public void cadastrarCliente(JOptionPane jOptionPane){
+    public void menuCliente(JOptionPane jOptionPane){
+        //aqui vai ter opcao 1 - cadastro, opcao 2 - listar, opcao 3 - verificar
+    }
 
-        String nomeCadastro = JOptionPane.showInputDialog(null,"Insira seu nome completo", "Cadastro de Cliente", JOptionPane.QUESTION_MESSAGE);
+    public void menuFuncionario(JOptionPane jOptionPane){
+        //aqui vai ter opcao 1 - cadastro, opcao 2 - listar
+    }
+
+    public void menuVeiculo (JOptionPane jOptionPane){
+        //aqui vai ter opcao 1 - cadastro, opcao 2 - listar
+    }
+
+
+    public void cadastroCliente(){
+
+    }
+
+    public void listarCliente(){
+
+    }
+
+    public void verificarCliente(){
+
     }
 }
