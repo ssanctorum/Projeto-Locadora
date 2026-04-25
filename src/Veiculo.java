@@ -1,5 +1,6 @@
 public class Veiculo {
 
+    //dados private veículos
     private String veiculoPlaca;
 
     private String veiculoModelo;
@@ -14,6 +15,7 @@ public class Veiculo {
 
     private boolean veiculoDisponivel;
 
+    //getters veículos
     public String getVeiculoPlaca() {
         return veiculoPlaca;
     }
@@ -42,6 +44,7 @@ public class Veiculo {
         return veiculoDisponivel;
     }
 
+    //setters veículos
     public void setVeiculoPlaca(String veiculoPlaca) {
         this.veiculoPlaca = veiculoPlaca;
     }
@@ -70,6 +73,7 @@ public class Veiculo {
         this.veiculoDisponivel = veiculoDisponivel;
     }
 
+    //construtor
     public Veiculo(boolean veiculoDisponivel, double veiculoValorDiaria, String veiculoCor, int veiculoAno, String veiculoMarca, String veiculoModelo, String veiculoPlaca) {
         this.veiculoDisponivel = veiculoDisponivel;
         this.veiculoValorDiaria = veiculoValorDiaria;
@@ -80,6 +84,7 @@ public class Veiculo {
         this.veiculoPlaca = veiculoPlaca;
     }
 
+    //toString
     @Override
     public String toString() {
         return "Veiculo{" +

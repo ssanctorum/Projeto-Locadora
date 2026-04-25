@@ -1,11 +1,13 @@
 public class Cliente extends Pessoa{
 
+    //dados private clientes
     private String clienteCNH;
 
     private String clienteValidadeCNH;
 
     private String clienteDataCadastro;
 
+    //getters cliente
     public String getClienteCNH() {
         return clienteCNH;
     }
@@ -18,6 +20,7 @@ public class Cliente extends Pessoa{
         return clienteDataCadastro;
     }
 
+    //setters cliente
     public void setClienteCNH(String clienteCNH) {
         this.clienteCNH = clienteCNH;
     }
@@ -30,6 +33,7 @@ public class Cliente extends Pessoa{
         this.clienteDataCadastro = clienteDataCadastro;
     }
 
+    //construtor
     public Cliente(String pessoaNome, String pessoaCpf, String pessoaTelefone, String pessoaEmail, String pessoaEndereco, String clienteCNH, String clienteValidadeCNH, String clienteDataCadastro) {
         super(pessoaNome, pessoaCpf, pessoaTelefone, pessoaEmail, pessoaEndereco);
         this.clienteCNH = clienteCNH;
@@ -37,6 +41,7 @@ public class Cliente extends Pessoa{
         this.clienteDataCadastro = clienteDataCadastro;
     }
 
+    //toString
     @Override
     public String toString() {
         return "Cliente{" +

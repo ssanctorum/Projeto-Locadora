@@ -1,5 +1,6 @@
 abstract class Pessoa {
 
+    //dados pessoa abstrata
     private String pessoaNome;
 
     private String pessoaCpf;
@@ -10,6 +11,7 @@ abstract class Pessoa {
 
     private String pessoaEndereco;
 
+    //getters pessoa abstrata
     public String getPessoaNome() {
         return pessoaNome;
     }
@@ -30,6 +32,7 @@ abstract class Pessoa {
         return pessoaEndereco;
     }
 
+    //setters pessoa abstrata
     public void setPessoaNome(String pessoaNome) {
         this.pessoaNome = pessoaNome;
     }
@@ -50,6 +53,7 @@ abstract class Pessoa {
         this.pessoaEndereco = pessoaEndereco;
     }
 
+    //construtor
     public Pessoa(String pessoaNome, String pessoaCpf, String pessoaTelefone, String pessoaEmail, String pessoaEndereco) {
         this.pessoaNome = pessoaNome;
         this.pessoaCpf = pessoaCpf;
@@ -58,6 +62,7 @@ abstract class Pessoa {
         this.pessoaEndereco = pessoaEndereco;
     }
 
+    //toString
     @Override
     public String toString() {
         return "Pessoa{" +

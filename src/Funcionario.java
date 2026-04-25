@@ -1,5 +1,6 @@
 public class Funcionario extends Pessoa {
 
+    //dados private dos funcionarios
     private int funcionarioMatricula;
 
     private String funcionarioCargo;
@@ -8,6 +9,7 @@ public class Funcionario extends Pessoa {
 
     private String funcionarioDataAdmissao;
 
+    //getters funcionarios
     public int getFuncionarioMatricula() {
         return funcionarioMatricula;
     }
@@ -24,6 +26,7 @@ public class Funcionario extends Pessoa {
         return funcionarioDataAdmissao;
     }
 
+    //setters funcionarios
     public void setFuncionarioMatricula(int funcionarioMatricula) {
         this.funcionarioMatricula = funcionarioMatricula;
     }
@@ -40,6 +43,7 @@ public class Funcionario extends Pessoa {
         this.funcionarioDataAdmissao = funcionarioDataAdmissao;
     }
 
+    //construtor
     public Funcionario(String pessoaNome, String pessoaCpf, String pessoaTelefone, String pessoaEmail, String pessoaEndereco, int funcionarioMatricula, String funcionarioCargo, double funcionarioSalario, String funcionarioDataAdmissao) {
         super(pessoaNome, pessoaCpf, pessoaTelefone, pessoaEmail, pessoaEndereco);
         this.funcionarioMatricula = funcionarioMatricula;
@@ -48,6 +52,7 @@ public class Funcionario extends Pessoa {
         this.funcionarioDataAdmissao = funcionarioDataAdmissao;
     }
 
+    //to string
     @Override
     public String toString() {
         return "Funcionario{" +
