@@ -16,43 +16,48 @@ public class Metodos {
         int loop = -1;
 
         do {
-            String menuResposta = JOptionPane.showInputDialog(null, Layouts_JOptionPane.menuCliente, "Menu Principal", JOptionPane.QUESTION_MESSAGE);
+            try {
+                String menuResposta = JOptionPane.showInputDialog(null, Layouts_JOptionPane.menuCliente, "Menu Principal", JOptionPane.QUESTION_MESSAGE);
 
-            //tratamentos que vão ser padrões abaixo
-            if (menuResposta == null){
-                return;
+                //tratamentos que vão ser padrões abaixo
+                if (menuResposta == null){
+                    return;
+                }
+
+                menuResposta = menuResposta.trim();
+                if (menuResposta.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"Você não digitou nada!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                    continue;
+                }
+
+                int menuRespostaInt = Integer.parseInt(menuResposta);
+
+                switch (menuRespostaInt){
+
+                    case 1:
+
+                        break;
+
+                    case 2:
+
+                        break;
+
+                    case 3:
+
+                        break;
+
+                    case 0:
+                        loop = 0;
+                        break;
+
+                    default:
+                        JOptionPane.showMessageDialog(null,"Opção inválida, tente novamente.", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                }
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro no sistema, tente novamente.\nErro: "+ e.getMessage(), "Erro!", JOptionPane.ERROR_MESSAGE);
             }
 
-            menuResposta = menuResposta.trim();
-            if (menuResposta.isEmpty()){
-                JOptionPane.showMessageDialog(null,"Você não digitou nada!");
-                continue;
-            }
-
-            int menuRespostaInt = Integer.parseInt(menuResposta);
-
-            switch (menuRespostaInt){
-
-                case 1:
-                    cadastroCliente();
-                    break;
-
-                case 2:
-                    listarCliente();
-                    break;
-
-                case 3:
-                    verificarCliente();
-                    break;
-
-                case 0:
-                    loop = 0;
-                    break;
-
-                default:
-                    JOptionPane.showMessageDialog(null, "Opção inválida! Tente novamente.");
-                    break;
-            }
         } while (loop != 0);
     }
 
@@ -60,43 +65,48 @@ public class Metodos {
         int loop = -1;
 
         do {
-            String menuResposta = JOptionPane.showInputDialog(null, Layouts_JOptionPane.menuFuncionario, "Menu Principal", JOptionPane.QUESTION_MESSAGE);
+            try {
+                String menuResposta = JOptionPane.showInputDialog(null, Layouts_JOptionPane.menuFuncionario, "Menu Principal", JOptionPane.QUESTION_MESSAGE);
 
-            //tratamentos que vão ser padrões abaixo
-            if (menuResposta == null){
-                return;
+                //tratamentos que vão ser padrões abaixo
+                if (menuResposta == null){
+                    return;
+                }
+
+                menuResposta = menuResposta.trim();
+                if (menuResposta.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"Você não digitou nada!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                    continue;
+                }
+
+                int menuRespostaInt = Integer.parseInt(menuResposta);
+
+                switch (menuRespostaInt){
+
+                    case 1:
+
+                        break;
+
+                    case 2:
+
+                        break;
+
+                    case 3:
+
+                        break;
+
+                    case 0:
+                        loop = 0;
+                        break;
+
+                    default:
+                        JOptionPane.showMessageDialog(null,"Opção inválida, tente novamente.", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                }
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro no sistema, tente novamente.\nErro: "+ e.getMessage(), "Erro!", JOptionPane.ERROR_MESSAGE);
             }
 
-            menuResposta = menuResposta.trim();
-            if (menuResposta.isEmpty()){
-                JOptionPane.showMessageDialog(null,"Você não digitou nada!");
-                continue;
-            }
-
-            int menuRespostaInt = Integer.parseInt(menuResposta);
-
-            switch (menuRespostaInt){
-
-                case 1:
-
-                    break;
-
-                case 2:
-
-                    break;
-
-                case 3:
-
-                    break;
-
-                case 0:
-                    loop = 0;
-                    break;
-
-                default:
-                    JOptionPane.showMessageDialog(null, "Opção inválida! Tente novamente.");
-                    break;
-            }
         } while (loop != 0);
     }
 
@@ -104,49 +114,55 @@ public class Metodos {
         int loop = -1;
 
         do {
-            String menuResposta = JOptionPane.showInputDialog(null, Layouts_JOptionPane.menuVeiculo, "Menu Principal", JOptionPane.QUESTION_MESSAGE);
+            try {
+                String menuResposta = JOptionPane.showInputDialog(null, Layouts_JOptionPane.menuVeiculo, "Menu Principal", JOptionPane.QUESTION_MESSAGE);
 
-            //tratamentos que vão ser padrões abaixo
-            if (menuResposta == null){
-                return;
+                //tratamentos que vão ser padrões abaixo
+                if (menuResposta == null){
+                    return;
+                }
+
+                menuResposta = menuResposta.trim();
+                if (menuResposta.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"Você não digitou nada!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                    continue;
+                }
+
+                int menuRespostaInt = Integer.parseInt(menuResposta);
+
+                switch (menuRespostaInt){
+
+                    case 1:
+
+                        break;
+
+                    case 2:
+
+                        break;
+
+                    case 3:
+
+                        break;
+
+                    case 0:
+                        loop = 0;
+                        break;
+
+                    default:
+                        JOptionPane.showMessageDialog(null,"Opção inválida, tente novamente.", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                        }
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro no sistema, tente novamente.\nErro: "+ e.getMessage(), "Erro!", JOptionPane.ERROR_MESSAGE);
             }
 
-            menuResposta = menuResposta.trim();
-            if (menuResposta.isEmpty()){
-                JOptionPane.showMessageDialog(null,"Você não digitou nada!");
-                continue;
-            }
-
-            int menuRespostaInt = Integer.parseInt(menuResposta);
-
-            switch (menuRespostaInt){
-
-                case 1:
-
-                    break;
-
-                case 2:
-
-                    break;
-
-                case 3:
-
-                    break;
-
-                case 0:
-                    loop = 0;
-                    break;
-
-                default:
-                    JOptionPane.showMessageDialog(null, "Opção inválida! Tente novamente.");
-                    break;
-            }
         } while (loop != 0);
     }
 
 
     public void cadastroCliente(){
 
+        String nomeCliente = JOptionPane.showInputDialog(null, "Insira seu nome completo:", "Cadastro de Cliente", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void listarCliente(){
