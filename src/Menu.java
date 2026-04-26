@@ -9,7 +9,7 @@ public class Menu {
 
         do {
             try {
-                String entradaMenu = JOptionPane.showInputDialog(null, Layouts_JOptionPane.menuPrincipal, "Menu Principal", JOptionPane.QUESTION_MESSAGE);
+                String entradaMenu = JOptionPane.showInputDialog(null, Layouts_JOptionPane.menuPrincipal, "Menu Principal", JOptionPane.PLAIN_MESSAGE);
 
                 // ele vem primeiro caso o user cancele a açao ou aperte no x da janela
                 if (entradaMenu == null){
@@ -19,7 +19,7 @@ public class Menu {
                 // o trim vem depois pq caso trimme antes de verificar null ele quebra
                 entradaMenu = entradaMenu.trim();
                 if (entradaMenu.isEmpty()){
-                    JOptionPane.showMessageDialog(null,"Você não digitou nada!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"Você não digitou nada!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
                     continue;
                 }
 
