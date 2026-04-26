@@ -44,10 +44,14 @@ public class Cliente extends Pessoa{
     //toString
     @Override
     public String toString() {
-        return "Cliente{" +
-                "clienteCNH='" + clienteCNH + '\'' +
-                ", clienteValidadeCNH='" + clienteValidadeCNH + '\'' +
-                ", clienteDataCadastro='" + clienteDataCadastro + '\'' +
-                '}';
+        return
+                "\n Nome: " + getPessoaNome() +
+                "\n CPF: " + getPessoaCpf() +
+                "\n Telefone :" + getPessoaTelefone() +
+                "\n E-mail: " + getPessoaEmail() +
+                "\n Endereço: " + getPessoaEndereco() +
+                "\n Registro CNH: " + clienteCNH +
+                "\n Validade CNH: " + clienteValidadeCNH +
+                "\n Data de Cadastro: " + clienteDataCadastro + "\n\n";
     }
 }
