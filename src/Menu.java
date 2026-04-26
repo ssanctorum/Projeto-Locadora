@@ -19,7 +19,7 @@ public class Menu {
                 // o trim vem depois pq caso trimme antes de verificar null ele quebra
                 entradaMenu = entradaMenu.trim();
                 if (entradaMenu.isEmpty()){
-                    JOptionPane.showMessageDialog(null,"Você não digitou nada!");
+                    JOptionPane.showMessageDialog(null,"Você não digitou nada!", "Atenção!", JOptionPane.ERROR_MESSAGE);
                     continue;
                 }
 
@@ -46,12 +46,12 @@ public class Menu {
                         break;
 
                     default:
-                        JOptionPane.showMessageDialog(null, "Opção inválida! Tente novamente.");
+                        JOptionPane.showMessageDialog(null,"Opção inválida, tente novamente.", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
 
                 }
 
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Ocorreu um erro no sistema, tente novamente.\nErro: "+ e.getMessage());
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro no sistema, tente novamente.\nErro: "+ e.getMessage(), "Erro!", JOptionPane.ERROR_MESSAGE);
             }
 
         } while (opcaoLoop != 0);
