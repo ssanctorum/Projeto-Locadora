@@ -41,7 +41,7 @@ public class Metodos {
                         break;
 
                     case 2:
-
+                        listarCliente();
                         break;
 
                     case 3:
@@ -241,6 +241,19 @@ public class Metodos {
     }
 
     public void listarCliente(){
+
+        if (clientes.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Não há nenhum cliente cadastrado.", "Listar Clientes", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        for (Cliente cliente : clientes){
+            if (cliente == clientes.getLast()){
+                JOptionPane.showOptionDialog(null, cliente.toString(), "Listar Clientes", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, new String[]{"Fim da lista"}, "Fim da lista.");
+                return;
+            }
+            JOptionPane.showOptionDialog(null, cliente.toString(), "Listar Clientes", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, new String[]{"Ver próximo..."}, "Ver próximo...");
+        }
 
     }
 
