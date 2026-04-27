@@ -187,6 +187,13 @@ public class Metodos {
 
             if (cpfCliente == null) return;
             if (cpfCliente.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O CPF não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+
+            for (Cliente cliente : clientes){
+                if (cpfCliente.equalsIgnoreCase(cliente.getPessoaCpf())){
+                    JOptionPane.showMessageDialog(null, "CPF já cadastrado!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                    cpfCliente = "";
+                }
+            }
         }
 
         String telefoneCliente = "";
@@ -219,6 +226,13 @@ public class Metodos {
 
             if (cnhCliente == null) return;
             if (cnhCliente.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O Registro da CNH não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+
+            for (Cliente cliente : clientes){
+                if (cnhCliente.equalsIgnoreCase(cliente.getClienteCNH())){
+                    JOptionPane.showMessageDialog(null, "CNH já cadastrada!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                    cnhCliente = "";
+                }
+            }
         }
 
         String validadeCnhCliente = "";
