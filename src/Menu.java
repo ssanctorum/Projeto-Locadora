@@ -41,7 +41,6 @@ public class Menu {
                         break;
 
                     case 0:
-                        System.out.println("saindo");
                         opcaoLoop = 0;
                         break;
 
