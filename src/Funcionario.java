@@ -55,11 +55,14 @@ public class Funcionario extends Pessoa {
     //to string
     @Override
     public String toString() {
-        return "Funcionario{" +
-                "funcionarioMatricula=" + funcionarioMatricula +
-                ", funcionarioCargo='" + funcionarioCargo + '\'' +
-                ", funcionarioSalario=" + funcionarioSalario +
-                ", funcionarioDataAdmissao='" + funcionarioDataAdmissao + '\'' +
-                '}';
+        return "\n Nome: " + getPessoaNome() +
+                "\n CPF: " + getPessoaCpf() +
+                "\n Telefone :" + getPessoaTelefone() +
+                "\n E-mail: " + getPessoaEmail() +
+                "\n Endereço: " + getPessoaEndereco() +
+                "\n Matrícula: " + getFuncionarioMatricula() +
+                "\n Cargo: " + getFuncionarioCargo() +
+                "\n Salário: " + String.format("%.2f",getFuncionarioSalario()) +
+                "\n Data de admissão: " + getFuncionarioDataAdmissao() + "\n\n";
     }
 }
