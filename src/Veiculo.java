@@ -75,26 +75,31 @@ public class Veiculo {
 
     //construtor
     public Veiculo(boolean veiculoDisponivel, double veiculoValorDiaria, String veiculoCor, int veiculoAno, String veiculoMarca, String veiculoModelo, String veiculoPlaca) {
-        this.veiculoDisponivel = veiculoDisponivel;
-        this.veiculoValorDiaria = veiculoValorDiaria;
-        this.veiculoCor = veiculoCor;
-        this.veiculoAno = veiculoAno;
-        this.veiculoMarca = veiculoMarca;
-        this.veiculoModelo = veiculoModelo;
         this.veiculoPlaca = veiculoPlaca;
+        this.veiculoModelo = veiculoModelo;
+        this.veiculoMarca = veiculoMarca;
+        this.veiculoAno = veiculoAno;
+        this.veiculoCor = veiculoCor;
+        this.veiculoValorDiaria = veiculoValorDiaria;
+        this.veiculoDisponivel = veiculoDisponivel;
+
+
+
+
+
     }
 
     //toString
     @Override
     public String toString() {
-        return "Veiculo{" +
-                "veiculoPlaca='" + veiculoPlaca + '\'' +
-                ", veiculoModelo='" + veiculoModelo + '\'' +
-                ", veiculoMarca='" + veiculoMarca + '\'' +
-                ", veiculoAno=" + veiculoAno +
-                ", veiculoCor='" + veiculoCor + '\'' +
-                ", veiculoValorDiaria=" + veiculoValorDiaria +
-                ", veiculoDisponivel=" + veiculoDisponivel +
-                '}';
+        return
+                "\n Placa: " + getVeiculoPlaca() +
+                "\n Modelo: " + getVeiculoModelo() +
+                "\n Marca :" + getVeiculoMarca() +
+                "\n Ano: " + getVeiculoAno() +
+                "\n Cor: " + getVeiculoCor() +
+                "\n Valor da Diária: " + getVeiculoValorDiaria() +
+                "\n Disponibilidade: " + isVeiculoDisponivel() + "\n";
+
     }
 }
