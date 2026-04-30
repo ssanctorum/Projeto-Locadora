@@ -12,7 +12,7 @@ public class Layouts_JOptionPane {
             "\n[1] - Cadastrar-se\n" +
             "[2] - Listar clientes\n" +
             "[3] - Verificar cliente\n" +
-            "[0] - Voltar ao menu\n\n";
+            "[0] - Voltar\n\n";
 
     public static final String menuFuncionario = "————— LOCADORA DE VEÍCULOS —————\n"+
             "\n                —— Painel do Funcionário ——\n" +
