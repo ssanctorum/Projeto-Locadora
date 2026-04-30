@@ -302,6 +302,11 @@ public class Metodos {
                     case 1:
                         String cpfVerify = JOptionPane.showInputDialog(null, "Digite o CPF para verificar, seguindo o modelo:\n000.000.000-00", "Verificar Cliente", JOptionPane.PLAIN_MESSAGE);
 
+                        if (cpfVerify == null) return;
+                        if (cpfVerify.isEmpty()) {
+                            JOptionPane.showMessageDialog(null,"Você não digitou nada!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                            continue;
+                        }
                         for (Cliente cliente : clientes){
                             if (cpfVerify.equalsIgnoreCase(cliente.getClienteCNH())) {
                                 JOptionPane.showMessageDialog(null, cliente.toString(), "Verificar Cliente", JOptionPane.INFORMATION_MESSAGE);
@@ -313,6 +318,12 @@ public class Metodos {
 
                     case 2:
                         String cnhVerify = JOptionPane.showInputDialog(null, "Digite a CNH para verificar:\n", "Verificar Cliente", JOptionPane.PLAIN_MESSAGE);
+
+                        if (cnhVerify == null) return;
+                        if (cnhVerify.isEmpty()) {
+                            JOptionPane.showMessageDialog(null,"Você não digitou nada!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                            continue;
+                        }
 
                         for (Cliente cliente : clientes){
                             if (cnhVerify.equalsIgnoreCase(cliente.getClienteCNH())) {
@@ -446,15 +457,127 @@ public class Metodos {
         funcionarios.add(funcionario);
 
         JOptionPane.showMessageDialog(null, "Funcionário contratado com sucesso!\n" + funcionario.toString(), "Admissão de Funcionário", JOptionPane.INFORMATION_MESSAGE);
-
-
     }
 
     public void listarFuncionario(){
+        if (funcionarios.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Não há nenhum funcionario contratado.", "Listar Funcionários", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
 
+        for (Funcionario funcionario : funcionarios){
+            if (funcionario == funcionarios.getLast()){
+                JOptionPane.showOptionDialog(null, funcionario.toString(), "Listar Funcionários", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, new String[]{"Fim da lista"}, "Fim da lista.");
+                return;
+            }
+            JOptionPane.showOptionDialog(null, funcionario.toString(), "Listar Funcionários", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, new String[]{"Ver próximo..."}, "Ver próximo...");
+        }
     }
 
     public void removerFuncionario(){
+        if (funcionarios.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Não há nenhum funcionário contratado.", "Remover Funcionário", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        int loop = -1;
+
+        do {
+            try{
+                String opcaoRemover = JOptionPane.showInputDialog(null, "Selecione como deseja remover:\n\n[1] - Remover por CPF\n[2] - Remover por matrícula\n[0] - Voltar\n\n", "Remover Funcionário", JOptionPane.PLAIN_MESSAGE);
+
+                if (opcaoRemover == null){
+                    return;
+                }
+
+                opcaoRemover = opcaoRemover.trim();
+                if (opcaoRemover.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"Você não digitou nada!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                    continue;
+                }
+
+                int opcaoRemoverInt = Integer.parseInt(opcaoRemover);
+
+                switch (opcaoRemoverInt){
+
+                    case 1:
+                        int loopCpf = -1;
+
+                        do {
+                            String cpfRemove = JOptionPane.showInputDialog(null, "Digite o CPF para remover, seguindo o modelo:\n000.000.000-00", "Remover Funcionário", JOptionPane.PLAIN_MESSAGE);
+
+                            if (cpfRemove == null) return;
+
+                            if (cpfRemove.isEmpty()){
+                                JOptionPane.showMessageDialog(null,"Você não digitou nada!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                                continue;
+                            }
+
+                            for (Funcionario funcionario : funcionarios){
+                                if (cpfRemove.equalsIgnoreCase(funcionario.getPessoaCpf())) {
+                                    JOptionPane.showMessageDialog(null, "O seguinte funcionário foi removido:\n" + funcionario.toString(), "Remover Funcionário", JOptionPane.INFORMATION_MESSAGE);
+                                    funcionarios.remove(funcionario);
+                                    return;
+                                }
+                            }
+                            JOptionPane.showMessageDialog(null, "Funcionário não encontrado! Tente novamente.\nVerifique também se o CPF foi digitado conforme o modelo.", "Remover Funcionário", JOptionPane.INFORMATION_MESSAGE);
+                        } while (loopCpf != 0);
+                        break;
+
+                    case 2:
+                        int loopMatr = -1;
+
+                        String matriculaRemove = "";
+                        int matriculaRemoveInt = 0;
+
+                        do {
+                            try{
+                                matriculaRemove = JOptionPane.showInputDialog(null, "Digite a matrícula para remover:\n", "Remover Funcionário", JOptionPane.PLAIN_MESSAGE);
+
+                                if (matriculaRemove == null) return;
+
+                                matriculaRemove = matriculaRemove.trim();
+
+                                if (matriculaRemove.isEmpty()){
+                                    JOptionPane.showMessageDialog(null,"Você não digitou nada!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                                    continue;
+                                }
+
+                                matriculaRemoveInt = Integer.parseInt(matriculaRemove);
+
+                                for (Funcionario funcionario : funcionarios){
+                                    if (matriculaRemoveInt == funcionario.getFuncionarioMatricula()){
+                                        JOptionPane.showMessageDialog(null, "O seguinte funcionário foi removido:\n" + funcionario.toString(), "Remover Funcionário", JOptionPane.INFORMATION_MESSAGE);
+                                        funcionarios.remove(funcionario);
+                                        return;
+                                    }
+                                }
+                                JOptionPane.showMessageDialog(null, "Funcionário não encontrado! Tente novamente.\n", "Remover Funcionário", JOptionPane.INFORMATION_MESSAGE);
+
+                            } catch (Exception e) {
+                                JOptionPane.showMessageDialog(null, "Ocorreu um erro no sistema, tente novamente.\nErro: "+ e.getMessage(), "Erro!", JOptionPane.ERROR_MESSAGE);
+                                matriculaRemove = "";
+
+                            }
+
+                        } while (loopMatr != 0);
+
+                        break;
+
+                    case 0:
+                        loop = 0;
+                        break;
+
+                    default:
+                        JOptionPane.showMessageDialog(null,"Opção inválida, tente novamente.", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                }
+
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro no sistema, tente novamente.\nErro: "+ e.getMessage(), "Erro!", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } while (loop != 0);
 
     }
 }
