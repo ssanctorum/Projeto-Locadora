@@ -45,7 +45,7 @@ public class Metodos {
                         break;
 
                     case 3:
-
+                        verificarCliente();
                         break;
 
                     case 0:
@@ -272,6 +272,70 @@ public class Metodos {
     }
 
     public void verificarCliente(){
+
+        if (clientes.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Não há nenhum cliente cadastrado.", "Verificar Cliente", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        int loop = -1;
+
+        do {
+            try{
+                String opcaoVerificar = JOptionPane.showInputDialog(null, "Selecione como deseja verificar:\n\n[1] - Verificar por CPF\n[2] - Verificar por CNH\n[0] - Voltar\n\n", "Verificar Cliente", JOptionPane.PLAIN_MESSAGE);
+
+                if (opcaoVerificar == null){
+                    return;
+                }
+
+                opcaoVerificar = opcaoVerificar.trim();
+                if (opcaoVerificar.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"Você não digitou nada!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                    continue;
+                }
+
+                int opcaoVerificarInt = Integer.parseInt(opcaoVerificar);
+
+                switch (opcaoVerificarInt){
+
+                    case 1:
+                        String cpfVerify = JOptionPane.showInputDialog(null, "Digite o CPF para verificar, seguindo o modelo:\n000.000.000-00", "Verificar Cliente", JOptionPane.PLAIN_MESSAGE);
+
+                        for (Cliente cliente : clientes){
+                            if (cpfVerify.equalsIgnoreCase(cliente.getClienteCNH())) {
+                                JOptionPane.showMessageDialog(null, cliente.toString(), "Verificar Cliente", JOptionPane.INFORMATION_MESSAGE);
+                                return;
+                            }
+                        }
+                        JOptionPane.showMessageDialog(null, "Cliente não encontrado! Tente novamente.\nVerifique também se o CPF foi digitado conforme o modelo.", "Verificar Cliente", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+
+                    case 2:
+                        String cnhVerify = JOptionPane.showInputDialog(null, "Digite a CNH para verificar:\n", "Verificar Cliente", JOptionPane.PLAIN_MESSAGE);
+
+                        for (Cliente cliente : clientes){
+                            if (cnhVerify.equalsIgnoreCase(cliente.getClienteCNH())) {
+                                JOptionPane.showMessageDialog(null, cliente.toString(), "Verificar Cliente", JOptionPane.INFORMATION_MESSAGE);
+                                return;
+                            }
+                        }
+                        JOptionPane.showMessageDialog(null, "Cliente não encontrado! Tente novamente.\n", "Verificar Cliente", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+
+                    case 0:
+                        loop = 0;
+                        break;
+
+                    default:
+                        JOptionPane.showMessageDialog(null,"Opção inválida, tente novamente.", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                }
+
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro no sistema, tente novamente.\nErro: "+ e.getMessage(), "Erro!", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } while (loop != 0);
 
     }
 }
