@@ -13,6 +13,7 @@ public class Metodos {
     //aqui começam os metodos
     //como os metodos possuem somente variaveis locais repetirei tudo
 
+    //menus
     public void menuCliente(){
 
         int loop = -1;
@@ -86,15 +87,15 @@ public class Metodos {
                 switch (menuRespostaInt){
 
                     case 1:
-
+                        admissaoFuncionario();
                         break;
 
                     case 2:
-
+                        listarFuncionario();
                         break;
 
                     case 3:
-
+                        removerFuncionario();
                         break;
 
                     case 0:
@@ -161,7 +162,7 @@ public class Metodos {
         } while (loop != 0);
     }
 
-
+    //metodos do menu cliente
     public void cadastroCliente(){
 
         int comecarCadastro = JOptionPane.showConfirmDialog(null,"Para iniciar o cadastro, certifique-se de ter esses dados em mãos:\n\n - Nome completo\n - CPF \n - Telefone \n - E-mail \n - Endereço\n - Número da CNH\n - Validade da CNH\n\nQuer prosseguir?","Cadastro de Cliente",JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
@@ -336,6 +337,124 @@ public class Metodos {
             }
 
         } while (loop != 0);
+
+    }
+
+    //metodos do menu funcionario
+    public void admissaoFuncionario(){
+
+        int comecarAdmissao = JOptionPane.showConfirmDialog(null,"Para iniciar a admissão, certifique-se de ter esses dados em mãos:\n\n - Nome completo\n - CPF \n - Telefone \n - E-mail \n - Endereço\n\nQuer prosseguir?","Admissão de Funcionário",JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+        if (comecarAdmissao == 1 || comecarAdmissao == -1){
+            return;
+        }
+
+        String nomeFuncionario = "";
+        while (nomeFuncionario.trim().isEmpty()){
+            nomeFuncionario = JOptionPane.showInputDialog(null, "Insira o nome completo do funcionário:", "Admissão de Funcionário", JOptionPane.INFORMATION_MESSAGE);
+
+            if (nomeFuncionario == null) return;
+            if (nomeFuncionario.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O nome não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        String cpfFuncionario = "";
+        while (cpfFuncionario.trim().isEmpty()){
+            cpfFuncionario = JOptionPane.showInputDialog(null, "Insira o CPF do funcionário:\n Modelo: 000.000.000-00", "Admissão de Funcionário", JOptionPane.INFORMATION_MESSAGE);
+
+            if (cpfFuncionario == null) return;
+            if (cpfFuncionario.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O CPF não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+
+            for (Funcionario funcionario : funcionarios){
+                if (cpfFuncionario.equalsIgnoreCase(funcionario.getPessoaCpf())){
+                    JOptionPane.showMessageDialog(null, "CPF já cadastrado!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+                    cpfFuncionario = "";
+                }
+            }
+        }
+
+        String telefoneFuncionario = "";
+        while (telefoneFuncionario.trim().isEmpty()){
+            telefoneFuncionario = JOptionPane.showInputDialog(null, "Insira o telefone do funcionário:\n Modelo: (DDD 90000-0000)", "Admissão de Funcionário", JOptionPane.INFORMATION_MESSAGE);
+
+            if (telefoneFuncionario == null) return;
+            if (telefoneFuncionario.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O telefone não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        String emailFuncionario = "";
+        while (emailFuncionario.trim().isEmpty()){
+            emailFuncionario = JOptionPane.showInputDialog(null, "Insira o e-mail de contato do funcionário:", "Admissão de Funcionário", JOptionPane.INFORMATION_MESSAGE);
+
+            if (emailFuncionario == null) return;
+            if (emailFuncionario.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O e-mail não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        String enderecoFuncionario = "";
+        while (enderecoFuncionario.trim().isEmpty()){
+            enderecoFuncionario = JOptionPane.showInputDialog(null, "Insira o endereço do funcionário:\n Modelo: Nome da rua, nº da casa - Nome do bairro - Nome da Cidade", "Admissão de Funcionário", JOptionPane.INFORMATION_MESSAGE);
+
+            if (enderecoFuncionario == null) return;
+            if (enderecoFuncionario.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O endereço não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        String matriculaFuncionario = "";
+        int matriculaFuncionarioInt = 0;
+        while (matriculaFuncionario.trim().isEmpty()){
+            try {
+                matriculaFuncionario = JOptionPane.showInputDialog(null, "Insira uma matrícula para o funcionário:", "Admissão de Funcionário", JOptionPane.INFORMATION_MESSAGE);
+
+                if (matriculaFuncionario == null) return;
+                if (matriculaFuncionario.trim().isEmpty()) JOptionPane.showMessageDialog(null,"A matrícula não pode ficar vazia!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+
+                matriculaFuncionarioInt = Integer.parseInt(matriculaFuncionario);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro no sistema, tente novamente.\nErro: "+ e.getMessage(), "Erro!", JOptionPane.ERROR_MESSAGE);
+                matriculaFuncionario = "";
+            }
+
+        }
+
+        String cargoFuncionario = "";
+        while (cargoFuncionario.trim().isEmpty()){
+            cargoFuncionario = JOptionPane.showInputDialog(null, "Insira o cargo do funcionário:", "Admissão de Funcionário", JOptionPane.INFORMATION_MESSAGE);
+
+            if (cargoFuncionario == null) return;
+            if (cargoFuncionario.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O cargo não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        String salarioFuncionario = "";
+        double salarioFuncionarioDouble = 0;
+        while (salarioFuncionario.trim().isEmpty()){
+            try {
+                salarioFuncionario = JOptionPane.showInputDialog(null, "Insira um valor de salário para o funcionário:", "Admissão de Funcionário", JOptionPane.INFORMATION_MESSAGE);
+
+                if (salarioFuncionario == null) return;
+                if (salarioFuncionario.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O salário não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+
+                salarioFuncionarioDouble = Double.parseDouble(salarioFuncionario);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro no sistema, tente novamente.\nErro: "+ e.getMessage(), "Erro!", JOptionPane.ERROR_MESSAGE);
+                salarioFuncionario = "";
+            }
+
+        }
+
+        LocalDateTime datahora = LocalDateTime.now();
+        DateTimeFormatter datahoraFormatado = DateTimeFormatter.ofPattern("dd/MM/yyyy 'às' HH:mm");
+        String dataFuncionario = datahora.format(datahoraFormatado);
+
+        Funcionario funcionario = new Funcionario(nomeFuncionario, cpfFuncionario, telefoneFuncionario, emailFuncionario, enderecoFuncionario, matriculaFuncionarioInt, cargoFuncionario, salarioFuncionarioDouble, dataFuncionario);
+        funcionarios.add(funcionario);
+
+        JOptionPane.showMessageDialog(null, "Funcionário contratado com sucesso!\n" + funcionario.toString(), "Admissão de Funcionário", JOptionPane.INFORMATION_MESSAGE);
+
+
+    }
+
+    public void listarFuncionario(){
+
+    }
+
+    public void removerFuncionario(){
 
     }
 }
