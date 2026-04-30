@@ -136,15 +136,15 @@ public class Metodos {
                 switch (menuRespostaInt){
 
                     case 1:
-
+                        cadastrarVeiculo();
                         break;
 
                     case 2:
-
+                        listarVeiculo();
                         break;
 
                     case 3:
-
+                        pesquisarVeiculo();
                         break;
 
                     case 0:
@@ -578,6 +578,100 @@ public class Metodos {
             }
 
         } while (loop != 0);
+
+    }
+
+    //metodos do menu veiculo
+    public void cadastrarVeiculo(){
+
+        int cadastroVeiculo = JOptionPane.showConfirmDialog(null,"Para iniciar o cadastro, certifique-se de ter esses dados do veículo em mãos:\n\n - Placa\n - Modelo\n - Marca\n - Ano \n - Cor\n\n - Você deverá criar um valor para a diária do veículo\n\nQuer prosseguir?","Cadastro de Cliente",JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+        if (cadastroVeiculo == 1 || cadastroVeiculo == -1){
+            return;
+        }
+
+        String placaVeiculo = "";
+        while (placaVeiculo.trim().isEmpty()){
+            placaVeiculo = JOptionPane.showInputDialog(null, "Insira a placa do veículo:", "Cadastrar Veículo", JOptionPane.INFORMATION_MESSAGE);
+
+            if (placaVeiculo == null) return;
+            if (placaVeiculo.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O nome não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        String modeloVeiculo = "";
+        while (modeloVeiculo.trim().isEmpty()){
+            modeloVeiculo = JOptionPane.showInputDialog(null, "Insira o modelo do veículo:", "Cadastrar Veículo", JOptionPane.INFORMATION_MESSAGE);
+
+            if (modeloVeiculo == null) return;
+            if (modeloVeiculo.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O nome não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        String marcaVeiculo = "";
+        while (marcaVeiculo.trim().isEmpty()){
+            marcaVeiculo = JOptionPane.showInputDialog(null, "Insira a marca do veículo:", "Cadastrar Veículo", JOptionPane.INFORMATION_MESSAGE);
+
+            if (marcaVeiculo == null) return;
+            if (marcaVeiculo.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O nome não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        String veiculoAno = "";
+        int veiculoAnoInt = 0;
+        while (veiculoAno.trim().isEmpty()) {
+            try {
+                veiculoAno = JOptionPane.showInputDialog(null, "Insira o ano do veículo:", "Cadastrar Veículo", JOptionPane.INFORMATION_MESSAGE);
+
+                if (veiculoAno == null) return;
+                if (veiculoAno.trim().isEmpty())
+                    JOptionPane.showMessageDialog(null, "O ano não pode ficar vazio!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
+
+                veiculoAnoInt = Integer.parseInt(veiculoAno);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro no sistema, tente novamente.\nErro: " + e.getMessage(), "Erro!", JOptionPane.ERROR_MESSAGE);
+                veiculoAno = "";
+            }
+        }
+
+        String corVeiculo = "";
+        while (corVeiculo.trim().isEmpty()){
+            corVeiculo = JOptionPane.showInputDialog(null, "Insira a cor do veículo:", "Cadastrar Veículo", JOptionPane.INFORMATION_MESSAGE);
+
+            if (corVeiculo == null) return;
+            if (corVeiculo.trim().isEmpty()) JOptionPane.showMessageDialog(null,"A cor não pode ficar vazia!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        String veiculoDiaria = "";
+        double veiculoDiariaDouble = 0;
+        while (veiculoDiaria.trim().isEmpty()){
+            try {
+                veiculoDiaria = JOptionPane.showInputDialog(null, "Insira o valor da diária do veículo:", "Cadastrar Veículo", JOptionPane.INFORMATION_MESSAGE);
+
+                if (veiculoDiaria == null) return;
+                if (veiculoDiaria.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O valor não pode ficar vazio","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+
+                veiculoDiariaDouble = Integer.parseInt(veiculoDiaria);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro no sistema, tente novamente.\nErro: "+ e.getMessage(), "Erro!", JOptionPane.ERROR_MESSAGE);
+                veiculoDiaria = "";
+            }
+
+        }
+
+
+        boolean estaDisponivel = true;
+
+        Veiculo veiculo = new Veiculo(estaDisponivel, veiculoDiariaDouble, corVeiculo, veiculoAnoInt, marcaVeiculo, modeloVeiculo, placaVeiculo);
+        veiculos.add(veiculo);
+
+        JOptionPane.showMessageDialog(null, "Veículo adicionado com sucesso!\n" + veiculo.toString(), "Adicionar Veículo", JOptionPane.INFORMATION_MESSAGE);
+
+
+    }
+
+    public void listarVeiculo(){
+
+    }
+
+    public void pesquisarVeiculo(){
 
     }
 }
