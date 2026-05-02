@@ -596,6 +596,13 @@ public class Metodos {
 
             if (placaVeiculo == null) return;
             if (placaVeiculo.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O nome não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+
+            for (Veiculo veiculo : veiculos){
+                if (placaVeiculo.equalsIgnoreCase(veiculo.getVeiculoPlaca())){
+                    JOptionPane.showMessageDialog(null,"Já existe um veículo com essa placa!","Cadastrar Veículo",JOptionPane.INFORMATION_MESSAGE);
+                    placaVeiculo = "";
+                }
+            }
         }
 
         String modeloVeiculo = "";
@@ -603,7 +610,7 @@ public class Metodos {
             modeloVeiculo = JOptionPane.showInputDialog(null, "Insira o modelo do veículo:", "Cadastrar Veículo", JOptionPane.INFORMATION_MESSAGE);
 
             if (modeloVeiculo == null) return;
-            if (modeloVeiculo.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O nome não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+            if (modeloVeiculo.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O modelo não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
         }
 
         String marcaVeiculo = "";
@@ -611,7 +618,7 @@ public class Metodos {
             marcaVeiculo = JOptionPane.showInputDialog(null, "Insira a marca do veículo:", "Cadastrar Veículo", JOptionPane.INFORMATION_MESSAGE);
 
             if (marcaVeiculo == null) return;
-            if (marcaVeiculo.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O nome não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+            if (marcaVeiculo.trim().isEmpty()) JOptionPane.showMessageDialog(null,"A marca não pode ficar vazia!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
         }
 
         String veiculoAno = "";
@@ -653,21 +660,18 @@ public class Metodos {
                 JOptionPane.showMessageDialog(null, "Ocorreu um erro no sistema, tente novamente.\nErro: "+ e.getMessage(), "Erro!", JOptionPane.ERROR_MESSAGE);
                 veiculoDiaria = "";
             }
-
         }
-
 
         boolean estaDisponivel = true;
         String disponibilidadeVeiculo;
 
-        if (estaDisponivel == true){ disponibilidadeVeiculo = "Está disponível."; }
+        if (estaDisponivel){ disponibilidadeVeiculo = "Está disponível."; }
         else { disponibilidadeVeiculo = "Não está disponível";}
 
         Veiculo veiculo = new Veiculo(placaVeiculo, modeloVeiculo, marcaVeiculo, veiculoAnoInt, corVeiculo, veiculoDiariaDouble, disponibilidadeVeiculo);
         veiculos.add(veiculo);
 
         JOptionPane.showMessageDialog(null, "Veículo adicionado com sucesso!\n" + veiculo.toString(), "Adicionar Veículo", JOptionPane.INFORMATION_MESSAGE);
-
 
     }
 
@@ -687,6 +691,31 @@ public class Metodos {
     }
 
     public void pesquisarVeiculo(){
+
+        if (veiculos.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Não há nenhum veículo para pesquisar.", "Pesquisar por placa", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        for (Veiculo veiculo : veiculos){
+            String pesquisaVeiculo = JOptionPane.showInputDialog(null,"Digite exatamente a placa do veículo: \n", "Pesquisar por placa", JOptionPane.PLAIN_MESSAGE);
+
+            if (pesquisaVeiculo == null) {
+                return;
+            }
+
+            if (pesquisaVeiculo.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null,"Você não digitou nada!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+
+            if (pesquisaVeiculo.trim().equalsIgnoreCase(veiculo.getVeiculoMarca())){
+                JOptionPane.showMessageDialog(null,veiculo.toString(),"Pesquisar por placa",JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+        }
+
+        JOptionPane.showMessageDialog(null, "Não foi possível encontrar o veículo com essa placa.");
 
     }
 }
