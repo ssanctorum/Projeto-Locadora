@@ -648,7 +648,7 @@ public class Metodos {
                 if (veiculoDiaria == null) return;
                 if (veiculoDiaria.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O valor não pode ficar vazio","Atenção!",JOptionPane.INFORMATION_MESSAGE);
 
-                veiculoDiariaDouble = Integer.parseInt(veiculoDiaria);
+                veiculoDiariaDouble = Double.parseDouble(veiculoDiaria);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ocorreu um erro no sistema, tente novamente.\nErro: "+ e.getMessage(), "Erro!", JOptionPane.ERROR_MESSAGE);
                 veiculoDiaria = "";
@@ -658,8 +658,12 @@ public class Metodos {
 
 
         boolean estaDisponivel = true;
+        String disponibilidadeVeiculo;
 
-        Veiculo veiculo = new Veiculo(estaDisponivel, veiculoDiariaDouble, corVeiculo, veiculoAnoInt, marcaVeiculo, modeloVeiculo, placaVeiculo);
+        if (estaDisponivel == true){ disponibilidadeVeiculo = "Está disponível."; }
+        else { disponibilidadeVeiculo = "Não está disponível";}
+
+        Veiculo veiculo = new Veiculo(placaVeiculo, modeloVeiculo, marcaVeiculo, veiculoAnoInt, corVeiculo, veiculoDiariaDouble, disponibilidadeVeiculo);
         veiculos.add(veiculo);
 
         JOptionPane.showMessageDialog(null, "Veículo adicionado com sucesso!\n" + veiculo.toString(), "Adicionar Veículo", JOptionPane.INFORMATION_MESSAGE);
@@ -668,7 +672,18 @@ public class Metodos {
     }
 
     public void listarVeiculo(){
+        if (veiculos.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Não há nenhum veículo para listar.", "Listar Frota", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
 
+        for (Veiculo veiculo : veiculos){
+            if (veiculo == veiculos.getLast()){
+                JOptionPane.showOptionDialog(null, veiculo.toString(), "Listar Frota", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, new String[]{"Fim da lista"}, "Fim da lista.");
+                return;
+            }
+            JOptionPane.showOptionDialog(null, veiculo.toString(), "Listar Frota", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, new String[]{"Ver próximo..."}, "Ver próximo...");
+        }
     }
 
     public void pesquisarVeiculo(){
