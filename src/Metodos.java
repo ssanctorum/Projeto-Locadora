@@ -176,7 +176,7 @@ public class Metodos {
 
         String nomeCliente = "";
         while (nomeCliente.trim().isEmpty()){
-            nomeCliente = JOptionPane.showInputDialog(null, "Insira seu nome completo:", "Cadastro de Cliente", JOptionPane.INFORMATION_MESSAGE);
+            nomeCliente = JOptionPane.showInputDialog(null, "Insira o nome completo:", "Cadastro de Cliente", JOptionPane.INFORMATION_MESSAGE);
 
             if (nomeCliente == null) return;
             if (nomeCliente.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O nome não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
@@ -184,7 +184,7 @@ public class Metodos {
 
         String cpfCliente = "";
         while (cpfCliente.trim().isEmpty()){
-            cpfCliente = JOptionPane.showInputDialog(null, "Insira seu CPF:\n Modelo: 000.000.000-00", "Cadastro de Cliente", JOptionPane.INFORMATION_MESSAGE);
+            cpfCliente = JOptionPane.showInputDialog(null, "Insira o CPF:\n Modelo: 000.000.000-00", "Cadastro de Cliente", JOptionPane.INFORMATION_MESSAGE);
 
             if (cpfCliente == null) return;
             if (cpfCliente.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O CPF não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
@@ -199,7 +199,7 @@ public class Metodos {
 
         String telefoneCliente = "";
         while (telefoneCliente.trim().isEmpty()){
-            telefoneCliente = JOptionPane.showInputDialog(null, "Insira seu telefone:\n Modelo: (DDD 90000-0000)", "Cadastro de Cliente", JOptionPane.INFORMATION_MESSAGE);
+            telefoneCliente = JOptionPane.showInputDialog(null, "Insira o telefone:\n Modelo: (DDD 90000-0000)", "Cadastro de Cliente", JOptionPane.INFORMATION_MESSAGE);
 
             if (telefoneCliente == null) return;
             if (telefoneCliente.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O telefone não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
@@ -207,7 +207,7 @@ public class Metodos {
 
         String emailCliente = "";
         while (emailCliente.trim().isEmpty()){
-            emailCliente = JOptionPane.showInputDialog(null, "Insira seu e-mail de contato:", "Cadastro de Cliente", JOptionPane.INFORMATION_MESSAGE);
+            emailCliente = JOptionPane.showInputDialog(null, "Insira o e-mail de contato:", "Cadastro de Cliente", JOptionPane.INFORMATION_MESSAGE);
 
             if (emailCliente == null) return;
             if (emailCliente.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O e-mail não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);
@@ -215,7 +215,7 @@ public class Metodos {
 
         String enderecoCliente = "";
         while (enderecoCliente.trim().isEmpty()){
-            enderecoCliente = JOptionPane.showInputDialog(null, "Insira seu endereço:\n Modelo: Nome da rua, nº da casa - Nome do bairro - Nome da Cidade", "Cadastro de Cliente", JOptionPane.INFORMATION_MESSAGE);
+            enderecoCliente = JOptionPane.showInputDialog(null, "Insira o endereço:\n Modelo: Nome da rua, nº da casa - Nome do bairro - Nome da Cidade", "Cadastro de Cliente", JOptionPane.INFORMATION_MESSAGE);
 
             if (enderecoCliente == null) return;
             if (enderecoCliente.trim().isEmpty()) JOptionPane.showMessageDialog(null,"O endereço não pode ficar vazio!","Atenção!",JOptionPane.INFORMATION_MESSAGE);

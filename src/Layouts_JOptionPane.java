@@ -9,7 +9,7 @@ public class Layouts_JOptionPane {
 
     public static final String menuCliente = "————— LOCADORA DE VEÍCULOS —————\n"+
             "\n                     —— Painel do Cliente ——\n" +
-            "\n[1] - Cadastrar-se\n" +
+            "\n[1] - Cadastrar Clientes\n" +
             "[2] - Listar clientes\n" +
             "[3] - Verificar cliente\n" +
             "[0] - Voltar\n\n";
